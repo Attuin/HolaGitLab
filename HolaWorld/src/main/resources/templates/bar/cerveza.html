@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Cerveza</title>
+</head>
+<body>
+    Nombre:
+    <span th:text="${cerveza.nombre}"></span>
+ 
+    Marca:
+    <span th:text="${cerveza.marca}"></span>
+ 
+    Precio:
+    <span th:text="${cerveza.precio}"></span>
+ 
+    <a th:href="@{'/adios'}">Volver</a>
+</body>
+</html>
