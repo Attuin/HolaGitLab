@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="ISO-8859-1" />
+<title>AngularJs con SpringBoot</title>
+<!--  IMPORTAMOS LAS LIBRERÍAS DE ANGULARJS  -->
+<script  src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script  src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-resource.js"></script>
+<!-- CREAMOS EL SCRIPT -->
+<script>
+    var app = angular.module('myApp', []);
+    //EL CONTROLADOR OBTIENE LOS DATOS DE UNA URL
+    app.controller('bebidasControlador', function($scope, $http) {
+        $http.get("http://localhost:8080/bar/listajson").then(
+                function(response) {
+                    $scope.datos = response.data;
+                });
+    });
+</script>
+</head>
+<body>
+    <!-- INDICAMOS EL SCRIPT Y EL CONTROLADOR -->
+    <div ng-app="myApp" ng-controller="bebidasControlador">
+ 
+        <table border=2>  
+            <tr>
+                <th>Nombre</th>
+                <th>Marca</th>
+                <th>Precio</th>
+            </tr>
+            <tr ng-repeat="x in datos">
+                <td>{{ x.nombre}}</td>
+                <td>{{ x.marca}}</td>
+                <td>{{ x.precio}}</td>
+            </tr>
+        </table>
+        <br /> <a th:href="@{'/adios'}">Volver</a>
+    </div>
+</body>
+</html>

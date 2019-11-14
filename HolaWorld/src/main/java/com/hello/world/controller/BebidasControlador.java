@@ -54,4 +54,15 @@ public class BebidasControlador {
         return bebidaServicio.getLista();
     }
     
+    // No funciona con el mismo nombre no parece ser case sensitive
+    @RequestMapping("/ListaJson")
+    public String listaJsonHtml(ModelMap mp){
+        return "bar/ListaJson";
+    }
+    
+    @RequestMapping("/ListaJson3")
+    public String listaJsonHtmlBootStrap(ModelMap mp){
+        return "bar/ListaJson3";
+    }
+    
 }
